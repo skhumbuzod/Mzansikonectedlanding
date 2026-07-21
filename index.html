@@ -290,13 +290,7 @@
     <h2>Join the waiting list</h2>
     <p class="lede">Our first cohorts start soon. Joining the list costs nothing and puts you first in line when a cohort opens in your area.</p>
     <div class="formcard" style="background:var(--bg)">
-      <!-- Hidden iframe: catches Google Forms response so page doesn't redirect -->
-      <iframe name="gf_hidden" id="gf_hidden" style="display:none;"></iframe>
-
-      <form id="waitlist"
-        action="https://docs.google.com/forms/d/e/1FAIpQLSdmCsFjz7e3l7L8ZW7lAh-_F09h_kZ7qm5oMCdHLmnawQv6kQ/formResponse"
-        method="POST"
-        target="gf_hidden">
+      <form id="waitlist">
         <label for="name">Your full name</label>
         <input id="name" name="entry.1952270288" type="text" required placeholder="e.g. Nomsa Dlamini">
         <label for="phone">WhatsApp number</label>
@@ -337,11 +331,33 @@
         (function(){
           var form = document.getElementById('waitlist');
           var success = document.getElementById('successMsg');
-          form.addEventListener('submit', function(){
-            setTimeout(function(){
+          form.addEventListener('submit', function(e){
+            e.preventDefault();
+            var submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting…';
+
+            var formData = new URLSearchParams();
+            formData.append('entry.1952270288', document.getElementById('name').value);
+            formData.append('entry.46191192', document.getElementById('phone').value);
+            formData.append('entry.1378304122', document.getElementById('biztype').value);
+            formData.append('entry.170770494', document.getElementById('province').value);
+            formData.append('entry.396025424', document.getElementById('registered').value);
+
+            fetch('https://docs.google.com/forms/d/e/1FAIpQLSdmCsFjz7e3l7L8ZW7lAh-_F09h_kZ7qm5oMCdHLmnawQv6kQ/formResponse', {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: {
+                'Content-Type': 'application/x-www-form-urlencoded'
+              },
+              body: formData.toString()
+            }).then(function(){
               form.style.display = 'none';
               success.style.display = 'block';
-            }, 800);
+            }).catch(function(){
+              form.style.display = 'none';
+              success.style.display = 'block';
+            });
           });
         })();
       </script>
