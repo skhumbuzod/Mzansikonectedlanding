@@ -290,20 +290,19 @@
     <h2>Join the waiting list</h2>
     <p class="lede">Our first cohorts start soon. Joining the list costs nothing and puts you first in line when a cohort opens in your area.</p>
     <div class="formcard" style="background:var(--bg)">
-      <!-- ============================================================
-           HOOK UP THE FORM (pick ONE):
-           Option A (recommended, 5 min): create a free form at formspree.io,
-             then replace YOUR_FORM_ID below with your form ID.
-           Option B: create a Google Form with the same fields and replace
-             this whole <form> with the Google Form embed code.
-           ============================================================ -->
-      <form id="waitlist" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+      <!-- Hidden iframe: catches Google Forms response so page doesn't redirect -->
+      <iframe name="gf_hidden" id="gf_hidden" style="display:none;"></iframe>
+
+      <form id="waitlist"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSdmCsFjz7e3l7L8ZW7lAh-_F09h_kZ7qm5oMCdHLmnawQv6kQ/formResponse"
+        method="POST"
+        target="gf_hidden">
         <label for="name">Your full name</label>
-        <input id="name" name="name" type="text" required placeholder="e.g. Nomsa Dlamini">
+        <input id="name" name="entry.1952270288" type="text" required placeholder="e.g. Nomsa Dlamini">
         <label for="phone">WhatsApp number</label>
-        <input id="phone" name="whatsapp" type="tel" required placeholder="e.g. 072 123 4567" pattern="[0-9+ ]{9,15}">
+        <input id="phone" name="entry.46191192" type="tel" required placeholder="e.g. 072 123 4567" pattern="[0-9+ ]{9,15}">
         <label for="biztype">What kind of business do you run (or want to start)?</label>
-        <select id="biztype" name="business_type" required>
+        <select id="biztype" name="entry.1378304122" required>
           <option value="">Choose one…</option>
           <option>Food &amp; catering</option>
           <option>Retail &amp; trading</option>
@@ -315,14 +314,14 @@
           <option>Other</option>
         </select>
         <label for="province">Province</label>
-        <select id="province" name="province" required>
+        <select id="province" name="entry.170770494" required>
           <option value="">Choose one…</option>
           <option>Gauteng</option><option>KwaZulu-Natal</option><option>Western Cape</option>
           <option>Eastern Cape</option><option>Limpopo</option><option>Mpumalanga</option>
           <option>North West</option><option>Free State</option><option>Northern Cape</option>
         </select>
         <label for="registered">Is your business registered with CIPC?</label>
-        <select id="registered" name="cipc_registered" required>
+        <select id="registered" name="entry.396025424" required>
           <option value="">Choose one…</option>
           <option>Yes</option>
           <option>No — not yet</option>
@@ -334,6 +333,18 @@
         </div>
         <button class="cta" type="submit">Put me on the list — it's free</button>
       </form>
+      <script>
+        (function(){
+          var form = document.getElementById('waitlist');
+          var success = document.getElementById('successMsg');
+          form.addEventListener('submit', function(){
+            setTimeout(function(){
+              form.style.display = 'none';
+              success.style.display = 'block';
+            }, 800);
+          });
+        })();
+      </script>
       <div class="success" id="successMsg">You're on the list! We'll message you on WhatsApp when a cohort opens near you. Remember: we will never ask you for money.</div>
       <p class="formnote">We ask for so little on purpose — no ID numbers, no bank details. That information is only ever needed later, inside the verified WhatsApp programme.</p>
     </div>
