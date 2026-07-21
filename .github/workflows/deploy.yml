@@ -22,8 +22,8 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          # Update this path if your host uses a different root folder
-          server-dir: /public_html/
+          # Dedicated FTP account root is already public_html, so upload to /
+          server-dir: /
           # Only upload files that changed — faster deploys
           dangerous-clean-slate: false
           exclude: |
