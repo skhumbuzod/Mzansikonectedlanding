@@ -354,14 +354,29 @@
             }).then(function(){
               form.style.display = 'none';
               success.style.display = 'block';
+              success.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }).catch(function(){
               form.style.display = 'none';
               success.style.display = 'block';
+              success.scrollIntoView({ behavior: 'smooth', block: 'center' });
             });
           });
         })();
       </script>
-      <div class="success" id="successMsg">You're on the list! We'll message you on WhatsApp when a cohort opens near you. Remember: we will never ask you for money.</div>
+      <div class="success" id="successMsg" style="display:none; text-align:center; padding: 40px 24px; background: rgba(3, 166, 102, 0.08); border: 2px solid var(--green); border-radius: 16px; margin-top: 10px;">
+        <div style="width:64px; height:64px; background:var(--green); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; margin-bottom:18px; box-shadow: 0 0 20px rgba(3, 166, 102, 0.4);">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+        </div>
+        <h3 style="font-size:1.6rem; font-weight:900; color:var(--white); margin-bottom:10px;">You're on the list! 🎉</h3>
+        <p style="font-size:1rem; color:var(--grey); max-width:440px; margin:0 auto 16px; line-height:1.5;">
+          Thank you for registering. We'll message you directly on <strong style="color:var(--white)">WhatsApp</strong> as soon as a new cohort opens in your area.
+        </p>
+        <div style="font-size:0.85rem; color:var(--green); font-weight:700; background:rgba(3,166,102,0.15); display:inline-block; padding:8px 16px; border-radius:30px;">
+          ✓ 100% Free · We will never ask you for money
+        </div>
+      </div>
       <p class="formnote">We ask for so little on purpose — no ID numbers, no bank details. That information is only ever needed later, inside the verified WhatsApp programme.</p>
     </div>
   </div>
