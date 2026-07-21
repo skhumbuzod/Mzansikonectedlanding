@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mzansi Konected — Brand Guide v1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&family=Dongle:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0B0B; --surface:#171717; --surface2:#1F1F1F;
+    --orange:#FF6B00; --orange-soft:#FF6A0E; --green:#03A666;
+    --white:#FFFFFF; --grey:#9B9B9B; --grey-dark:#3A3A3A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Lato',Arial,sans-serif;background:var(--bg);color:var(--white);line-height:1.6}
+  .wrap{max-width:1000px;margin:0 auto;padding:0 24px}
+  .dongle{font-family:'Dongle',sans-serif;font-weight:700;line-height:1}
+  header{padding:60px 0 40px;border-bottom:1px solid var(--grey-dark)}
+  .kicker{font-size:.75rem;font-weight:700;letter-spacing:.3em;color:var(--orange);text-transform:uppercase;margin-bottom:14px}
+  h1{font-weight:900;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05}
+  h1 span{color:var(--orange)}
+  section{padding:52px 0;border-bottom:1px solid var(--grey-dark)}
+  h2{font-weight:900;font-size:1.6rem;margin-bottom:6px}
+  .sub{color:var(--grey);margin-bottom:30px;max-width:640px}
+  /* logo */
+  .logorow{display:flex;gap:20px;flex-wrap:wrap}
+  .logocard{border-radius:14px;padding:40px;display:flex;flex-direction:column;align-items:center;gap:14px;flex:1;min-width:240px}
+  .logocard.dark{background:var(--surface);border:1px solid var(--grey-dark)}
+  .logocard.light{background:var(--white)}
+  .kbadge{width:72px;height:72px;background:var(--white);border-radius:18px 18px 18px 6px;display:flex;align-items:center;justify-content:center;position:relative}
+  .kbadge b{font-weight:900;font-size:42px;color:var(--bg)}
+  .kbadge i{position:absolute;top:11px;right:11px;width:13px;height:13px;background:var(--orange);border-radius:50%}
+  .kbadge.inv{background:var(--bg)}
+  .kbadge.inv b{color:var(--white)}
+  .wordmark{text-align:center;line-height:1.3}
+  .wordmark .m{letter-spacing:.4em;font-size:.75rem;font-weight:700}
+  .wordmark .k{letter-spacing:.15em;font-size:1rem;font-weight:900}
+  .logocard.light .wordmark{color:var(--bg)}
+  .logonote{font-size:.82rem;color:var(--grey);margin-top:16px;max-width:640px}
+  /* palette */
+  .chips{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
+  .chip{border-radius:12px;overflow:hidden;border:1px solid var(--grey-dark)}
+  .chip .sw{height:90px}
+  .chip .info{background:var(--surface);padding:12px 14px;font-size:.8rem}
+  .chip .info b{display:block;font-size:.9rem}
+  .chip .info span{color:var(--grey);font-family:monospace}
+  .chip .use{color:var(--grey);font-size:.75rem;margin-top:4px;display:block}
+  /* type */
+  .typerow{display:grid;gap:22px}
+  .type{background:var(--surface);border:1px solid var(--grey-dark);border-radius:12px;padding:26px}
+  .type .label{font-size:.72rem;font-weight:700;letter-spacing:.2em;color:var(--orange);text-transform:uppercase;margin-bottom:10px}
+  .type .meta{font-size:.8rem;color:var(--grey);margin-top:10px;font-family:monospace}
+  /* image treatment */
+  .imgrules{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .rule{background:var(--surface);border:1px solid var(--grey-dark);border-radius:12px;padding:22px}
+  .rule h3{font-size:1rem;font-weight:900;margin-bottom:8px}
+  .rule h3.do{color:var(--green)}
+  .rule h3.dont{color:var(--orange)}
+  .rule p, .rule li{font-size:.9rem;color:var(--grey)}
+  .rule ul{list-style:none;display:grid;gap:8px}
+  .rule li{padding-left:22px;position:relative}
+  .rule li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:900}
+  .rule.no li::before{content:"✕";color:var(--orange)}
+  .prompt{background:var(--bg);border:1px dashed var(--grey-dark);border-radius:10px;padding:16px;font-family:monospace;font-size:.8rem;color:var(--grey);margin-top:18px;line-height:1.7}
+  .prompt b{color:var(--orange)}
+  /* voice */
+  .voice{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+  .vcard{background:var(--surface);border:1px solid var(--grey-dark);border-radius:12px;padding:22px}
+  .vcard .say{font-weight:900;font-size:1.05rem;margin-bottom:6px}
+  .vcard .not{font-size:.85rem;color:var(--grey);text-decoration:line-through}
+  .vcard .why{font-size:.8rem;color:var(--grey);margin-top:8px}
+  footer{padding:36px 0;font-size:.8rem;color:var(--grey)}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="kicker">Brand Guide · v1 · July 2026</div>
+    <h1>MZANSI <span>KONECTED</span></h1>
+    <p class="dongle" style="font-size:2rem;color:var(--orange-soft);margin-top:8px">Get Smart · Get Funded</p>
+    <p style="color:var(--grey);margin-top:14px;max-width:620px">Extracted from the investor pitch deck (July 2026). One reference for anyone making anything — slides, social posts, the landing page, reward cards, WhatsApp assets. If it doesn't look like this, it isn't us.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>1 · Logo</h2>
+    <p class="sub">The "k" badge: white rounded tile with one corner squared, black k, orange spark. Wordmark stacked beneath or beside it — MZANSI letterspaced light, KONECTED heavy.</p>
+    <div class="logorow">
+      <div class="logocard dark">
+        <img src="mzansikonected-logo-dark.svg" width="170" alt="Mzansi Konected — dark background lockup">
+        <span style="font-size:.75rem;color:var(--grey)">Dark-background lockup (KONECTED in white)</span>
+      </div>
+      <div class="logocard light">
+        <img src="mzansikonected-logo-primary.svg" width="170" alt="Mzansi Konected — primary lockup">
+        <span style="font-size:.75rem;color:#888">Primary lockup — on white</span>
+      </div>
+    </div>
+    <p class="logonote">Master files: mzansikonected-logo-primary.svg (light bg) · mzansikonected-logo-dark.svg (dark bg) · mzansikonected-logo-outline.svg (outline variant) · mzansikonected-badge.svg (badge only, for favicons/avatars/app icons). Rules: never recolor the spark (always orange), never place the badge on orange, clear space = height of the "k" on all sides.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>2 · Colour</h2>
+    <p class="sub">Black canvas, orange voltage. Orange is for emphasis and action — headlines' key words, CTAs, big numbers. Green appears only for money-in-your-pocket positives. Never orange and green competing in the same element.</p>
+    <div class="chips">
+      <div class="chip"><div class="sw" style="background:#0B0B0B;border-bottom:1px solid var(--grey-dark)"></div><div class="info"><b>Ink Black</b><span>#0B0B0B</span><span class="use">Canvas / backgrounds</span></div></div>
+      <div class="chip"><div class="sw" style="background:#FF6B00"></div><div class="info"><b>Voltage Orange</b><span>#FF6B00</span><span class="use">Emphasis, CTAs, key numbers</span></div></div>
+      <div class="chip"><div class="sw" style="background:#FF6A0E"></div><div class="info"><b>Orange Soft</b><span>#FF6A0E</span><span class="use">Dongle accents, taglines</span></div></div>
+      <div class="chip"><div class="sw" style="background:#03A666"></div><div class="info"><b>Proof Green</b><span>#03A666</span><span class="use">Positive outcomes, payouts, ✓</span></div></div>
+      <div class="chip"><div class="sw" style="background:#FFFFFF"></div><div class="info"><b>White</b><span>#FFFFFF</span><span class="use">Primary text, logo tile</span></div></div>
+      <div class="chip"><div class="sw" style="background:#9B9B9B"></div><div class="info"><b>Concrete Grey</b><span>#9B9B9B</span><span class="use">Secondary text, sources</span></div></div>
+      <div class="chip"><div class="sw" style="background:#171717"></div><div class="info"><b>Surface</b><span>#171717</span><span class="use">Cards, panels</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>3 · Typography</h2>
+    <p class="sub">Two faces, strict jobs. Lato does the talking; Dongle does the winking. Both free on Google Fonts.</p>
+    <div class="typerow">
+      <div class="type">
+        <div class="label">Display — Lato Black</div>
+        <div style="font-weight:900;font-size:clamp(2.4rem,7vw,4.5rem);line-height:1">R30 000 000 000</div>
+        <div class="meta">Lato Black (900) · huge numerals &amp; statements · key words in #FF6B00 · tight line-height (1.0–1.1)</div>
+      </div>
+      <div class="type">
+        <div class="label">Headline — Lato Black / Bold</div>
+        <div style="font-weight:900;font-size:1.8rem;line-height:1.15">The money exists.<br>The workflow is what's <span style="color:var(--orange)">missing</span>.</div>
+        <div class="meta">Lato Black 900 or Bold 700 · sentence case · one orange emphasis per headline, max</div>
+      </div>
+      <div class="type">
+        <div class="label">Body — Lato Regular</div>
+        <div style="font-size:1rem;color:var(--white)">Every gate proves something real — and something real comes back. No generic workshops. All on WhatsApp.</div>
+        <div class="meta">Lato Regular 400 · white on black · secondary/source lines in #9B9B9B at smaller size</div>
+      </div>
+      <div class="type">
+        <div class="label">Accent — Dongle</div>
+        <div class="dongle" style="font-size:2.6rem;color:var(--orange-soft)">Get Smart · Get Funded</div>
+        <div class="meta">Dongle Bold/Regular · taglines, kickers, human moments only — never for body copy or data</div>
+      </div>
+      <div class="type">
+        <div class="label">Kicker — Lato Bold caps</div>
+        <div style="font-weight:700;font-size:.8rem;letter-spacing:.3em;color:var(--orange)">THE PROBLEM</div>
+        <div class="meta">Lato Bold 700 · all caps · letterspacing .25–.3em · #FF6B00 · labels every section</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>4 · Image Treatment</h2>
+    <p class="sub">The photographic voice is set by Nomsa's storyboard: warm, intimate, documentary-real. People first, always — the platform is invisible in photography except as a phone in a hand.</p>
+    <div class="imgrules">
+      <div class="rule">
+        <h3 class="do">The look</h3>
+        <ul>
+          <li>Photorealistic, documentary style — real township &amp; small-business settings</li>
+          <li>Warm natural light: golden afternoon sun or warm incandescent evening lamps</li>
+          <li>Intimate, emotional, dignified — joy, focus, pride; never pity</li>
+          <li>Real business textures: vetkoek trays, flour bags, notebooks, card machines, stock shelves</li>
+          <li>The phone/WhatsApp as the bridge — screens visible in-hand, in-context</li>
+        </ul>
+      </div>
+      <div class="rule no">
+        <h3 class="dont">Never</h3>
+        <ul>
+          <li>Corporate stock photography — suits, handshakes, glass towers</li>
+          <li>Poverty-porn framing or desaturated "charity appeal" grading</li>
+          <li>Cold blue/grey tech aesthetics — we are warm, human, orange</li>
+          <li>Generic African-market clichés lifted from stock libraries</li>
+          <li>Text-heavy graphics baked into photos</li>
+        </ul>
+      </div>
+    </div>
+    <div class="prompt"><b>House prompt formula (Midjourney / Firefly):</b><br>
+    [warm + dignified subject description, SA-specific] + real business context (township kitchen / spaza / workshop) + device in-hand showing WhatsApp + "warm afternoon light" or "warm incandescent lamp light" + "photorealistic, intimate, emotional documentary photography" + --ar 16:9<br><br>
+    <b>Example from the deck:</b> "A warm and joyful middle-aged South African woman in her 50s, wearing a bright floral doek headwrap and apron dusted with flour, sitting at a small wooden table in a sunlit township kitchen, smiling at her Android smartphone reading a WhatsApp message, tray of golden vetkoek beside her. Warm afternoon light, photorealistic, intimate documentary photography."</div>
+    <p style="font-size:.85rem;color:var(--grey);margin-top:16px">Grading note: lift warmth (+temp), keep blacks rich (matches #0B0B0B canvas), let orange tones in the scene (doek, vetkoek, sunset) echo Voltage Orange so photos and UI feel like one family.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>5 · Voice</h2>
+    <p class="sub">Straight talk. Short sentences. Big claims backed by sources. We name the fear before the reader does — then answer it.</p>
+    <div class="voice">
+      <div class="vcard">
+        <div class="say">"The money exists. The system doesn't."</div>
+        <div class="not">"We leverage synergies in the ESD ecosystem"</div>
+        <div class="why">Declarative pairs. Full stops as punctuation of confidence.</div>
+      </div>
+      <div class="vcard">
+        <div class="say">"Let's talk straight — is this a scam?"</div>
+        <div class="not">"We are a trusted and reputable organisation"</div>
+        <div class="why">Name the doubt first. Trust is earned by candour, not claimed by adjectives.</div>
+      </div>
+      <div class="vcard">
+        <div class="say">"We only ever pay money TO you."</div>
+        <div class="not">"No hidden fees or charges apply"</div>
+        <div class="why">Concrete direction of money. Green treatment. This line is brand IP — reuse it.</div>
+      </div>
+      <div class="vcard">
+        <div class="say">"Prove it. Earn it. Scale it."</div>
+        <div class="not">"Our gamified learning journey empowers users"</div>
+        <div class="why">Three verbs beat one buzzword. Rhythm of threes throughout.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="border-bottom:none">
+  <div class="wrap">
+    <h2>6 · Applications</h2>
+    <p class="sub">Where each element lives:</p>
+    <ul style="list-style:none;display:grid;gap:10px;color:var(--grey);font-size:.95rem">
+      <li><b style="color:var(--white)">Pitch deck:</b> black canvas, one giant Lato Black number per slide, orange emphasis, grey source line at the foot. Already the house style — protect it.</li>
+      <li><b style="color:var(--white)">Landing page:</b> same system (built — mzansikonected-landing.html). Green appears only in the trust/scam section.</li>
+      <li><b style="color:var(--white)">Email signature:</b> black brand tile + orange divider (built — Arial fallback for email clients).</li>
+      <li><b style="color:var(--white)">Reward cards / vouchers:</b> alternate black-on-white and white-on-black tiles, orange for the unlock line, "We've got you." in Dongle (per slide 48 of the deck).</li>
+      <li><b style="color:var(--white)">WhatsApp bot:</b> voice rules apply — short, warm, one emoji max per message, milestone messages get the green treatment in copy ("R2,500 paid ✓").</li>
+      <li><b style="color:var(--white)">Social:</b> deck-style stat cards travel best — big number, one orange word, source line. Don't post photography without a person in it.</li>
+    </ul>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">MZANSI KONECTED · Brand Guide v1 · Compiled from the July 2026 investor deck · Swap CSS logo for master files on receipt</div>
+</footer>
+
+</body>
+</html>

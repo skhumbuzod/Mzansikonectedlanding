@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mzansi Konected — Get Smart · Get Funded</title>
+<meta name="description" content="Free business development and real rewards for South African entrepreneurs — funded by corporate Enterprise & Supplier Development programmes. 100% free. We never ask you for money.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&family=Dongle:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0B0B; --surface:#171717; --surface2:#1F1F1F;
+    --orange:#FF6B00; --orange-soft:#FF6A0E; --green:#03A666;
+    --white:#FFFFFF; --grey:#9B9B9B; --grey-dark:#3A3A3A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Lato',Arial,sans-serif;background:var(--bg);color:var(--white);line-height:1.6}
+  .wrap{max-width:1040px;margin:0 auto;padding:0 22px}
+  .dongle{font-family:'Dongle',sans-serif;font-weight:700;line-height:1}
+  /* header */
+  header{padding:20px 0;border-bottom:1px solid var(--grey-dark)}
+  header .wrap{display:flex;justify-content:space-between;align-items:center}
+  .lockup{display:flex;align-items:center;gap:12px}
+  .kbadge{width:44px;height:44px;background:var(--white);border-radius:12px 12px 12px 4px;display:flex;align-items:center;justify-content:center;position:relative}
+  .kbadge b{font-weight:900;font-size:26px;color:var(--bg);line-height:1}
+  .kbadge i{position:absolute;top:7px;right:7px;width:8px;height:8px;background:var(--orange);border-radius:50%}
+  .wordmark{line-height:1.2}
+  .wordmark .m{letter-spacing:.35em;font-size:.7rem;color:var(--white);font-weight:700}
+  .wordmark .k{letter-spacing:.12em;font-size:.9rem;color:var(--white);font-weight:900}
+  .tagline{font-family:'Dongle',sans-serif;font-weight:400;font-size:1.5rem;color:var(--orange-soft);line-height:1}
+  /* hero */
+  .hero{padding:90px 0 70px}
+  .kicker{font-size:.8rem;font-weight:700;letter-spacing:.25em;color:var(--orange);text-transform:uppercase;margin-bottom:26px}
+  .hero h1{font-weight:900;font-size:clamp(2.4rem,6.5vw,4.2rem);line-height:1.05;max-width:820px}
+  .hero h1 span{color:var(--orange)}
+  .hero p.sub{margin:26px 0 36px;font-size:1.15rem;max-width:620px;color:var(--grey)}
+  .hero p.sub strong{color:var(--white)}
+  .cta{display:inline-block;background:var(--orange);color:var(--bg);font-weight:900;padding:16px 36px;border-radius:8px;text-decoration:none;font-size:1.05rem;border:none;cursor:pointer;font-family:'Lato',Arial,sans-serif}
+  .cta:hover{background:var(--orange-soft)}
+  .hero .free{margin-top:16px;font-size:.95rem;color:var(--grey)}
+  .hero .free b{color:var(--green)}
+  /* trust bar */
+  .trustbar{background:var(--surface);border-top:1px solid var(--grey-dark);border-bottom:1px solid var(--grey-dark)}
+  .trustbar .wrap{display:flex;flex-wrap:wrap;gap:8px 36px;justify-content:center;padding:18px 22px;font-size:.9rem;font-weight:700}
+  .trustbar span::before{content:"✓ ";color:var(--green);font-weight:900}
+  /* sections */
+  section{padding:72px 0}
+  .kicker2{font-size:.75rem;font-weight:700;letter-spacing:.25em;color:var(--orange);text-transform:uppercase;margin-bottom:12px}
+  h2{font-weight:900;font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.1;margin-bottom:14px}
+  .lede{color:var(--grey);max-width:640px;margin-bottom:40px;font-size:1.05rem}
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
+  .step{background:var(--surface);border:1px solid var(--grey-dark);border-radius:14px;padding:26px 22px}
+  .step .dd{font-weight:900;font-size:.75rem;letter-spacing:.2em;color:var(--orange);margin-bottom:14px}
+  .step h3{font-weight:900;font-size:1.1rem;margin-bottom:8px}
+  .step p{font-size:.92rem;color:var(--grey)}
+  .step .reward{margin-top:16px;font-size:.88rem;font-weight:700;color:var(--white);background:var(--surface2);border-left:3px solid var(--orange);border-radius:0 8px 8px 0;padding:10px 12px}
+  .step .reward b{color:var(--orange)}
+  /* straight talk */
+  .straight{background:var(--surface);border:1px solid var(--grey-dark);border-radius:18px;padding:44px 38px}
+  .straight h2 span{color:var(--orange)}
+  .straight ul{list-style:none;margin:24px 0 0;display:grid;gap:14px;max-width:720px}
+  .straight li{padding-left:32px;position:relative;font-size:1rem;color:var(--white)}
+  .straight li::before{content:"✕";position:absolute;left:0;color:var(--orange);font-weight:900}
+  .straight li.yes::before{content:"✓";color:var(--green)}
+  .straight .why{margin-top:28px;font-size:.95rem;color:var(--grey);border-top:1px solid var(--grey-dark);padding-top:22px;max-width:720px}
+  .straight .why strong{color:var(--white)}
+  .straight .why em{color:var(--orange);font-style:normal;font-weight:700}
+  /* founder */
+  .founder{display:flex;gap:24px;align-items:flex-start;background:var(--surface);border:1px solid var(--grey-dark);border-radius:14px;padding:30px}
+  .founder .avatar{width:64px;height:64px;border-radius:50%;background:var(--orange);color:var(--bg);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1.4rem;flex-shrink:0}
+  .founder p{font-size:.95rem;color:var(--grey)}
+  .founder strong{color:var(--white)}
+  .founder a{color:var(--orange);text-decoration:none;font-weight:700}
+  /* form */
+  .formcard{background:var(--surface);border:1px solid var(--grey-dark);border-radius:18px;padding:38px;max-width:560px}
+  .formcard label{display:block;font-weight:700;font-size:.88rem;margin:18px 0 6px;color:var(--white)}
+  .formcard input,.formcard select{width:100%;padding:13px 15px;border:1.5px solid var(--grey-dark);border-radius:8px;font-size:1rem;background:var(--bg);color:var(--white);font-family:'Lato',Arial,sans-serif}
+  .formcard input::placeholder{color:#5c5c5c}
+  .formcard input:focus,.formcard select:focus{outline:none;border-color:var(--orange)}
+  .formcard .consent{display:flex;gap:10px;align-items:flex-start;margin-top:20px;font-size:.8rem;color:var(--grey)}
+  .formcard .consent input{width:auto;margin-top:3px;accent-color:var(--orange)}
+  .formcard button{margin-top:24px;width:100%}
+  .formnote{font-size:.82rem;color:var(--grey);margin-top:16px}
+  .success{display:none;background:rgba(3,166,102,.12);border:1.5px solid var(--green);border-radius:12px;padding:20px;margin-top:18px;font-weight:700;color:var(--white)}
+  /* footer */
+  footer{border-top:1px solid var(--grey-dark);padding:36px 0;font-size:.85rem;color:var(--grey)}
+  footer a{color:var(--orange);text-decoration:none}
+  footer .wrap{display:grid;gap:8px}
+  footer .fm{font-weight:900;color:var(--white);letter-spacing:.15em}
+  footer .fm span{color:var(--orange)}
+  /* ===== MOTION ===== */
+  .hero{position:relative;overflow:hidden}
+  .glow{position:absolute;pointer-events:none;filter:blur(90px);opacity:.35;border-radius:50%}
+  .glow.g1{width:520px;height:520px;background:radial-gradient(circle,#FF6B00 0%,transparent 65%);top:-160px;right:-120px;animation:drift1 14s ease-in-out infinite alternate}
+  .glow.g2{width:420px;height:420px;background:radial-gradient(circle,#FF6A0E 0%,transparent 60%);bottom:-200px;left:-140px;opacity:.18;animation:drift2 18s ease-in-out infinite alternate}
+  @keyframes drift1{from{transform:translate(0,0) scale(1)}to{transform:translate(-60px,50px) scale(1.15)}}
+  @keyframes drift2{from{transform:translate(0,0) scale(1)}to{transform:translate(70px,-40px) scale(1.1)}}
+  .hero .wrap{position:relative;z-index:1}
+  .rise{opacity:0;transform:translateY(28px);animation:riseIn .8s cubic-bezier(.22,1,.36,1) forwards}
+  .rise.d1{animation-delay:.05s}.rise.d2{animation-delay:.2s}.rise.d3{animation-delay:.35s}
+  .rise.d4{animation-delay:.5s}.rise.d5{animation-delay:.65s}.rise.d6{animation-delay:.8s}
+  @keyframes riseIn{to{opacity:1;transform:translateY(0)}}
+  .hero h1 .line{display:block;overflow:hidden}
+  .hero h1 .line em{display:inline-block;font-style:normal}
+  .cta{transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s,background .2s}
+  .cta:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(255,107,0,.35)}
+  /* stat strip */
+  .statstrip{display:flex;gap:44px;flex-wrap:wrap;margin-top:52px;padding-top:34px;border-top:1px solid var(--grey-dark)}
+  .stat .num{font-weight:900;font-size:clamp(1.8rem,4.5vw,2.8rem);color:var(--orange);line-height:1;font-variant-numeric:tabular-nums}
+  .stat .lbl{font-size:.82rem;color:var(--grey);margin-top:6px;max-width:180px}
+  /* scroll reveal */
+  .sr{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+  .sr.in{opacity:1;transform:translateY(0)}
+  .step.sr:nth-child(2){transition-delay:.1s}.step.sr:nth-child(3){transition-delay:.2s}.step.sr:nth-child(4){transition-delay:.3s}
+  .step{transition:border-color .3s,transform .3s}
+  .step:hover{border-color:var(--orange);transform:translateY(-4px)}
+  /* hero image treatment */
+  .hero-img{position:absolute;inset:0;z-index:0}
+  .hero-img img{width:100%;height:100%;object-fit:cover;object-position:center left;transform:scaleX(-1);opacity:.6}
+  .hero-img::after{content:"";position:absolute;inset:0;background:
+    linear-gradient(90deg, rgba(11,11,11,.96) 0%, rgba(11,11,11,.82) 38%, rgba(11,11,11,.35) 68%, rgba(11,11,11,.15) 100%),
+    linear-gradient(180deg, rgba(11,11,11,.5) 0%, rgba(11,11,11,0) 30%, rgba(11,11,11,0) 60%, #0B0B0B 100%)}
+  @media(max-width:600px){
+    .hero-img img{object-position:center top;opacity:.4}
+    .hero-img::after{background:linear-gradient(180deg, rgba(11,11,11,.75) 0%, rgba(11,11,11,.55) 50%, #0B0B0B 100%)}
+  }
+  /* gradient shimmer on hero accent */
+  .hero h1 .line em{background:linear-gradient(100deg,#FF6B00 20%,#FFB25E 45%,#FF6B00 70%);background-size:220% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:shimmer 4.5s ease-in-out infinite}
+  @keyframes shimmer{0%,100%{background-position:0% 0}50%{background-position:100% 0}}
+  /* marquee ticker */
+  .ticker{overflow:hidden;background:var(--orange);padding:12px 0;transform:rotate(-1deg);margin:10px -10px;width:calc(100% + 20px)}
+  .ticker-track{display:flex;gap:0;white-space:nowrap;animation:scroll 28s linear infinite;width:max-content}
+  .ticker span{font-weight:900;font-size:.95rem;letter-spacing:.12em;color:var(--bg);text-transform:uppercase;padding:0 18px}
+  .ticker span::after{content:"·";margin-left:36px;color:var(--bg)}
+  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+  @media(prefers-reduced-motion:reduce){
+    .rise,.sr{opacity:1 !important;transform:none !important;animation:none !important;transition:none !important}
+    .glow{animation:none !important}
+    .ticker-track{animation:none !important}
+    .hero h1 .line em{animation:none !important}
+  }
+  @media(max-width:600px){
+    .founder{flex-direction:column}
+    .hero{padding:60px 0 50px}
+    section{padding:52px 0}
+    .straight{padding:32px 24px}
+    .statstrip{gap:26px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="lockup">
+<svg width="46" height="57" style="display:block" viewBox="146 -7 742 929" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M726.798 5C807.12 5 872.651 68.3241 876.191 147.772C876.392 152.269 875.914 156.767 875.063 161.188L750.656 807.478C719.079 901.474 669.256 909.892 599.084 881.833L225.773 745.337C198.623 735.41 180.209 710.006 179.223 681.115L159.393 100.454C158.065 61.5681 188.299 28.8655 227.169 27.1428L726.798 5Z" fill="white"/>
+<path d="M523.068 141.052C558.575 141.052 587.358 169.836 587.358 205.343C587.358 240.849 558.575 269.633 523.068 269.633C487.562 269.633 458.778 240.85 458.777 205.343C458.777 169.836 487.562 141.052 523.068 141.052Z" fill="#B7B7B7"/>
+<path d="M523.068 141.052C558.575 141.052 587.358 169.836 587.358 205.343C587.358 240.849 558.575 269.633 523.068 269.633C487.562 269.633 458.778 240.85 458.777 205.343C458.777 169.836 487.562 141.052 523.068 141.052Z" stroke="#FF6A0E"/>
+<path d="M329.62 52.5852C365.126 52.5857 393.911 81.3698 393.911 116.876C393.911 118.556 393.846 120.221 393.72 121.868L385.259 342.84C384.954 350.8 390.936 357.44 397.712 361.627C413.804 371.571 426.6 355.525 436.093 339.162C438.681 334.701 442.141 330.644 446.439 327.258C464.668 312.899 491.086 316.035 505.445 334.263C505.447 334.266 505.449 334.269 505.451 334.272L716.132 566.724C718.269 568.774 720.291 570.998 722.176 573.391C744.147 601.283 739.347 641.706 711.456 663.678C683.782 685.478 643.773 680.923 621.688 653.608L621.17 652.958H621.168L621.16 652.946C619.283 650.561 617.6 648.085 616.111 645.537L469.824 430.865C467.856 427.976 465.25 425.601 462.635 423.282C453.282 414.993 442.971 405.425 430.474 405.424C419.341 405.424 409.852 413.078 401.128 419.993C391.794 427.392 381.672 436.512 381.216 448.413L372.158 684.978C372.15 685.194 371.971 685.366 371.755 685.366C371.549 685.366 371.376 685.523 371.352 685.728C368.916 706.615 351.161 722.827 329.62 722.827C306.415 722.827 287.604 704.016 287.604 680.811C287.604 679.526 287.662 678.255 287.774 676.999L265.538 122.077C265.401 120.362 265.33 118.627 265.33 116.876C265.33 81.3696 294.113 52.5853 329.62 52.5852Z" fill="black"/>
+<path d="M726.798 5C807.12 5 872.651 68.3241 876.191 147.772C876.392 152.269 875.914 156.767 875.063 161.188L750.656 807.478C719.079 901.474 669.256 909.892 599.084 881.833L225.773 745.337C198.623 735.41 180.209 710.006 179.223 681.115L159.393 100.454C158.065 61.5681 188.299 28.8655 227.169 27.1428L726.798 5Z" fill="white" stroke="#FF6A0E" stroke-width="10"/>
+<path d="M523.068 141.052C558.575 141.052 587.358 169.836 587.358 205.343C587.358 240.849 558.575 269.633 523.068 269.633C487.562 269.633 458.778 240.85 458.777 205.343C458.777 169.836 487.562 141.052 523.068 141.052Z" fill="#B7B7B7"/>
+<path d="M523.068 141.052C558.575 141.052 587.358 169.836 587.358 205.343C587.358 240.849 558.575 269.633 523.068 269.633C487.562 269.633 458.778 240.85 458.777 205.343C458.777 169.836 487.562 141.052 523.068 141.052Z" stroke="#FF6A0E"/>
+<path d="M329.62 52.5852C365.126 52.5857 393.911 81.3698 393.911 116.876C393.911 118.556 393.846 120.221 393.72 121.868L385.259 342.84C384.954 350.8 390.936 357.44 397.712 361.627C413.804 371.571 426.6 355.525 436.093 339.162C438.681 334.701 442.141 330.644 446.439 327.258C464.668 312.899 491.086 316.035 505.445 334.263C505.447 334.266 505.449 334.269 505.451 334.272L716.132 566.724C718.269 568.774 720.291 570.998 722.176 573.391C744.147 601.283 739.347 641.706 711.456 663.678C683.782 685.478 643.773 680.923 621.688 653.608L621.17 652.958H621.168L621.16 652.946C619.283 650.561 617.6 648.085 616.111 645.537L469.824 430.865C467.856 427.976 465.25 425.601 462.635 423.282C453.282 414.993 442.971 405.425 430.474 405.424C419.341 405.424 409.852 413.078 401.128 419.993C391.794 427.392 381.672 436.512 381.216 448.413L372.158 684.978C372.15 685.194 371.971 685.366 371.755 685.366C371.549 685.366 371.376 685.523 371.352 685.728C368.916 706.615 351.161 722.827 329.62 722.827C306.415 722.827 287.604 704.016 287.604 680.811C287.604 679.526 287.662 678.255 287.774 676.999L265.538 122.077C265.401 120.362 265.33 118.627 265.33 116.876C265.33 81.3696 294.113 52.5853 329.62 52.5852Z" fill="black"/>
+<path d="M648.569 111.733C658.172 105.929 670.661 109.008 676.466 118.61C682.27 128.213 679.192 140.702 669.59 146.507C655.076 155.28 631.772 148.001 617.259 156.774L609.538 161.441C599.347 167.602 593.208 178.906 587.223 190.412C586.608 191.595 586.426 192.944 586.647 194.259C586.93 195.933 587.851 197.449 589.255 198.404C598.169 204.472 607.006 211.034 616.705 212.093L657.434 216.539C678.639 218.854 701.103 199.59 722.309 201.905C736.926 203.501 747.482 216.645 745.886 231.262C744.29 245.878 731.146 256.434 716.529 254.838C694.754 252.46 676.537 227.257 654.762 224.879L612.935 220.311C605.516 219.502 597.926 221.864 590.315 224.609C586.105 226.127 582.875 229.538 580.887 233.547C578.522 238.316 577.982 243.891 580.022 248.808C584.006 258.408 587.82 268.195 595.088 274.145L627.001 300.277C652.081 320.814 696.732 314.842 721.812 335.379C739.064 349.505 741.598 374.942 727.472 392.193C713.346 409.444 687.909 411.978 670.657 397.852C643.826 375.882 642.93 324.41 616.099 302.439L587.439 278.973C582.621 275.027 576.497 272.868 570.025 271.183C555.064 267.289 538.715 269.314 523.255 269.314C487.748 269.314 458.965 240.53 458.965 205.023C458.965 169.517 487.748 140.733 523.255 140.733C529.868 140.733 536.249 141.732 542.253 143.587C561.53 149.542 581.271 162.215 600.384 155.756C603.238 154.792 605.962 153.577 608.516 152.033L617.619 146.53C630.539 138.72 635.649 119.544 648.569 111.733Z" fill="#FF6A0E"/>
+</svg>
+      <div class="wordmark"><div class="m">M Z A N S I</div><div class="k">KONECTED</div></div>
+    </div>
+    <div class="tagline">Get Smart · Get Funded</div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-img" aria-hidden="true">
+    <picture>
+      <source media="(max-width:600px)" srcset="mzansikonected-hero-mobile.webp">
+      <img src="mzansikonected-hero.webp" alt="" onerror="this.closest('.hero-img').style.display='none'">
+    </picture>
+  </div>
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="wrap">
+    <div class="kicker rise d1">For South African Entrepreneurs</div>
+    <h1>
+      <span class="line rise d2">Free business support.</span>
+      <span class="line rise d3">Real rewards.</span>
+      <span class="line rise d4"><em style="color:var(--orange)">No catch.</em></span>
+    </h1>
+    <p class="sub rise d5">By law, big companies must spend <strong>billions every year</strong> developing small businesses like yours. Mzansi Konected delivers that support directly to you — step by step, on WhatsApp.</p>
+    <div class="rise d6">
+      <a class="cta" href="#signup">Join the waiting list</a>
+      <p class="free"><b>100% free for entrepreneurs.</b> No fees. Ever. The corporates pay — that's the law.</p>
+    </div>
+    <div class="statstrip rise d6">
+      <div class="stat"><div class="num" data-count="30" data-suffix=" billion" data-prefix="R">R0</div><div class="lbl">must be spent on small business development every year — by law</div></div>
+      <div class="stat"><div class="num" data-count="2.69" data-decimals="2" data-suffix=" million">0</div><div class="lbl">small businesses in South Africa, most locked out of support</div></div>
+      <div class="stat"><div class="num" data-count="93.9" data-decimals="1" data-suffix="%">0</div><div class="lbl">of online South Africans already use WhatsApp — so that's where we are</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="trustbar">
+  <div class="wrap">
+    <span>Completely free to join</span>
+    <span>We NEVER ask for money, PINs or OTPs</span>
+    <span>Runs on WhatsApp — no app needed</span>
+    <span>POPIA protected</span>
+  </div>
+</div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Get Smart</span><span>Get Funded</span><span>No Fees Ever</span><span>On WhatsApp</span><span>Real Rewards</span><span>Prove It · Earn It</span>
+    <span>Get Smart</span><span>Get Funded</span><span>No Fees Ever</span><span>On WhatsApp</span><span>Real Rewards</span><span>Prove It · Earn It</span>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <div class="kicker2">How it works</div>
+    <h2>Prove it. Earn it. Grow it.</h2>
+    <p class="lede">You prove your business is real, one step at a time. Every step you pass unlocks real support — automatically. No committees. No connections needed.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="dd">STEP 1 · IDENTITY</div>
+        <h3>Get verified</h3>
+        <p>Confirm your ID and business details over WhatsApp. Not registered yet? We help you get there — free.</p>
+        <div class="reward">Unlocks: <b>data voucher + free coaching session</b></div>
+      </div>
+      <div class="step">
+        <div class="dd">STEP 2 · READINESS</div>
+        <h3>Show your business</h3>
+        <p>Short lessons built for your type of business — food, retail, services, construction and more. On your phone, at your pace.</p>
+        <div class="reward">Unlocks: <b>tablet + WiFi router + card machine</b></div>
+      </div>
+      <div class="step">
+        <div class="dd">STEP 3 · FINANCIAL</div>
+        <h3>Get your finances right</h3>
+        <p>Bank account, tax number, basic records — we guide you through each one.</p>
+        <div class="reward">Unlocks: <b>R2,500 cash milestone via PayShap</b></div>
+      </div>
+      <div class="step">
+        <div class="dd">STEP 4 · TRADING</div>
+        <h3>Grow into supply chains</h3>
+        <p>Trading consistently? You qualify for the supplier pathway toward becoming a verified supplier to major corporates.</p>
+        <div class="reward">Unlocks: <b>corporate supplier development track</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="straight">
+      <div class="kicker2">Our promise</div>
+      <h2>Free means free. <span>Here's our word.</span></h2>
+      <p style="color:var(--grey)">You've probably seen programmes that promise big and deliver little. So instead of asking for your trust, we'll earn it — starting with what we commit to:</p>
+      <ul>
+        <li class="yes">Joining costs nothing — no joining fee, no "admin fee", no fees of any kind, ever</li>
+        <li class="yes">Money only ever flows TO you — vouchers, tools, and cash milestones you've earned</li>
+        <li class="yes">Your details stay yours — we never ask for PINs, passwords or OTPs, and never sell your data</li>
+        <li class="yes">Every step is clear — you always know what you're working toward and what it unlocks</li>
+        <li>If anyone asks you for money in our name, it's not us — report it and we'll act</li>
+      </ul>
+      <p class="why"><strong>So who pays for all of this?</strong> South African companies with turnover above R50 million are required by the B-BBEE Codes to spend a percentage of profits developing small businesses — it's called <em>Enterprise &amp; Supplier Development (ESD)</em>. Mzansi Konected delivers that support directly to entrepreneurs, with every rand tracked and reported. The corporates pay us. You never do.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="kicker2">The people</div>
+    <h2>Who is behind this?</h2>
+    <div class="founder" style="margin-top:26px">
+      <div class="avatar">SD</div>
+      <div>
+        <p><strong>Skhumbuzo Dlomo — Founder</strong></p>
+        <p>Designer, educator and lecturer in User-Centred Design at Red &amp; Yellow Creative School of Business. Mzansi Konected was built from two years of research into why enterprise development spend fails to reach the entrepreneurs it is meant for.</p>
+        <p style="margin-top:8px">Questions? Email <a href="mailto:hello@mzansikonected.co.za">hello@mzansikonected.co.za</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="signup" style="background:var(--surface);border-top:1px solid var(--grey-dark)">
+  <div class="wrap">
+    <div class="kicker2">Limited places</div>
+    <h2>Join the waiting list</h2>
+    <p class="lede">Our first cohorts start soon. Joining the list costs nothing and puts you first in line when a cohort opens in your area.</p>
+    <div class="formcard" style="background:var(--bg)">
+      <!-- ============================================================
+           HOOK UP THE FORM (pick ONE):
+           Option A (recommended, 5 min): create a free form at formspree.io,
+             then replace YOUR_FORM_ID below with your form ID.
+           Option B: create a Google Form with the same fields and replace
+             this whole <form> with the Google Form embed code.
+           ============================================================ -->
+      <form id="waitlist" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <label for="name">Your full name</label>
+        <input id="name" name="name" type="text" required placeholder="e.g. Nomsa Dlamini">
+        <label for="phone">WhatsApp number</label>
+        <input id="phone" name="whatsapp" type="tel" required placeholder="e.g. 072 123 4567" pattern="[0-9+ ]{9,15}">
+        <label for="biztype">What kind of business do you run (or want to start)?</label>
+        <select id="biztype" name="business_type" required>
+          <option value="">Choose one…</option>
+          <option>Food &amp; catering</option>
+          <option>Retail &amp; trading</option>
+          <option>Services (salon, repairs, cleaning…)</option>
+          <option>Manufacturing</option>
+          <option>Construction</option>
+          <option>Agriculture</option>
+          <option>Technology / online</option>
+          <option>Other</option>
+        </select>
+        <label for="province">Province</label>
+        <select id="province" name="province" required>
+          <option value="">Choose one…</option>
+          <option>Gauteng</option><option>KwaZulu-Natal</option><option>Western Cape</option>
+          <option>Eastern Cape</option><option>Limpopo</option><option>Mpumalanga</option>
+          <option>North West</option><option>Free State</option><option>Northern Cape</option>
+        </select>
+        <label for="registered">Is your business registered with CIPC?</label>
+        <select id="registered" name="cipc_registered" required>
+          <option value="">Choose one…</option>
+          <option>Yes</option>
+          <option>No — not yet</option>
+          <option>I'm not sure</option>
+        </select>
+        <div class="consent">
+          <input type="checkbox" id="consent" required>
+          <label for="consent" style="margin:0;font-weight:400;color:var(--grey)">I agree that Mzansi Konected may store my details and contact me on WhatsApp about upcoming cohorts. My information will not be sold or shared, in line with POPIA. I can ask for it to be deleted at any time.</label>
+        </div>
+        <button class="cta" type="submit">Put me on the list — it's free</button>
+      </form>
+      <div class="success" id="successMsg">You're on the list! We'll message you on WhatsApp when a cohort opens near you. Remember: we will never ask you for money.</div>
+      <p class="formnote">We ask for so little on purpose — no ID numbers, no bank details. That information is only ever needed later, inside the verified WhatsApp programme.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fm">MZANSI <span>KONECTED</span> <span class="dongle" style="font-size:1.4rem;font-weight:400;margin-left:10px;letter-spacing:0;color:var(--orange-soft)">Get Smart · Get Funded</span></div>
+    <div>Contact: <a href="mailto:hello@mzansikonected.co.za">hello@mzansikonected.co.za</a></div>
+    <div>Your personal information is processed in line with the Protection of Personal Information Act (POPIA). We never sell your data.</div>
+    <div>If anyone asks you
