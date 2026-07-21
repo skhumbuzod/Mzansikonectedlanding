@@ -24,8 +24,8 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           # Dedicated FTP account root is already public_html, so upload to /
           server-dir: /
-          # Only upload files that changed — faster deploys
-          dangerous-clean-slate: false
+          # Force full re-upload to ensure all files (including images) are synced
+          dangerous-clean-slate: true
           exclude: |
             **/.git*
             **/.git*/**
