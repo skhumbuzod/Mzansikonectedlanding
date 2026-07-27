@@ -224,25 +224,25 @@
     <h2>Prove it. Earn it. Grow it.</h2>
     <p class="lede">You prove your business is real, one step at a time. Every step you pass unlocks real support — automatically. No committees. No connections needed.</p>
     <div class="steps">
-      <div class="step">
+      <div class="step sr">
         <div class="dd">STEP 1 · IDENTITY</div>
         <h3>Get verified</h3>
         <p>Confirm your ID and business details over WhatsApp. Not registered yet? We help you get there — free.</p>
         <div class="reward">Unlocks: <b>data voucher + free coaching session</b></div>
       </div>
-      <div class="step">
+      <div class="step sr">
         <div class="dd">STEP 2 · READINESS</div>
         <h3>Show your business</h3>
         <p>Short lessons built for your type of business — food, retail, services, construction and more. On your phone, at your pace.</p>
         <div class="reward">Unlocks: <b>tablet + WiFi router + card machine</b></div>
       </div>
-      <div class="step">
+      <div class="step sr">
         <div class="dd">STEP 3 · FINANCIAL</div>
         <h3>Get your finances right</h3>
         <p>Bank account, tax number, basic records — we guide you through each one.</p>
         <div class="reward">Unlocks: <b>R2,500 cash milestone via PayShap</b></div>
       </div>
-      <div class="step">
+      <div class="step sr">
         <div class="dd">STEP 4 · TRADING</div>
         <h3>Grow into supply chains</h3>
         <p>Trading consistently? You qualify for the supplier pathway toward becoming a verified supplier to major corporates.</p>
@@ -371,4 +371,72 @@
     <div class="fm">MZANSI <span>KONECTED</span> <span class="dongle" style="font-size:1.4rem;font-weight:400;margin-left:10px;letter-spacing:0;color:var(--orange-soft)">Get Smart · Get Funded</span></div>
     <div>Contact: <a href="mailto:hello@mzansikonected.co.za">hello@mzansikonected.co.za</a></div>
     <div>Your personal information is processed in line with the Protection of Personal Information Act (POPIA). We never sell your data.</div>
-    <div>If anyone asks you
+    <div>If anyone asks you for money in our name, it's not us — report it to <a href="mailto:hello@mzansikonected.co.za">hello@mzansikonected.co.za</a> and we'll act on it.</div>
+    <div>&copy; 2026 Mzansi Konected. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Respect reduced-motion preference
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- Stat count-up ----
+  function animateCount(el){
+    var target = parseFloat(el.getAttribute('data-count'));
+    var decimals = parseInt(el.getAttribute('data-decimals') || '0', 10);
+    var prefix = el.getAttribute('data-prefix') || '';
+    var suffix = el.getAttribute('data-suffix') || '';
+    if (isNaN(target)) return;
+    if (reduce){
+      el.textContent = prefix + target.toFixed(decimals) + suffix;
+      return;
+    }
+    var duration = 1500;
+    var startTime = null;
+    function frame(now){
+      if (startTime === null) startTime = now;
+      var progress = Math.min((now - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var value = target * eased;
+      el.textContent = prefix + value.toFixed(decimals) + suffix;
+      if (progress < 1) requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  }
+
+  var statEls = document.querySelectorAll('.stat .num');
+  if ('IntersectionObserver' in window && statEls.length){
+    var statObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          animateCount(entry.target);
+          statObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+    statEls.forEach(function(el){ statObserver.observe(el); });
+  } else {
+    statEls.forEach(animateCount);
+  }
+
+  // ---- Scroll reveal for .sr elements ----
+  var srEls = document.querySelectorAll('.sr');
+  if ('IntersectionObserver' in window && srEls.length){
+    var srObserver = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('in');
+          srObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    srEls.forEach(function(el){ srObserver.observe(el); });
+  } else {
+    srEls.forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+</body>
+</html>
