@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mzansi Konected — Get Smart · Get Funded</title>
-<meta name="description" content="Free business development and real rewards for South African entrepreneurs — funded by corporate Enterprise & Supplier Development programmes. 100% free. We never ask you for money.">
+<meta name="description" content="MzansiKonect-ED automates B-BBEE Enterprise & Supplier Development due diligence, coaching and reporting on WhatsApp — audit-ready ESD spend for corporates, free support for entrepreneurs.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400&family=Dongle:wght@400;700&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
   .dongle{font-family:'Dongle',sans-serif;font-weight:700;line-height:1}
   /* header */
   header{padding:20px 0;border-bottom:1px solid var(--grey-dark)}
-  header .wrap{display:flex;justify-content:space-between;align-items:center}
+  header .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
   .lockup{display:flex;align-items:center;gap:12px}
   .kbadge{width:44px;height:44px;background:var(--white);border-radius:12px 12px 12px 4px;display:flex;align-items:center;justify-content:center;position:relative}
   .kbadge b{font-weight:900;font-size:26px;color:var(--bg);line-height:1}
@@ -29,15 +29,20 @@
   .wordmark .m{letter-spacing:.35em;font-size:.7rem;color:var(--white);font-weight:700}
   .wordmark .k{letter-spacing:.12em;font-size:.9rem;color:var(--white);font-weight:900}
   .tagline{font-family:'Dongle',sans-serif;font-weight:400;font-size:1.5rem;color:var(--orange-soft);line-height:1}
+  .navlinks{display:flex;gap:22px;font-size:.85rem;font-weight:700}
+  .navlinks a{color:var(--grey);text-decoration:none}
+  .navlinks a:hover{color:var(--orange)}
   /* hero */
   .hero{padding:90px 0 70px}
   .kicker{font-size:.8rem;font-weight:700;letter-spacing:.25em;color:var(--orange);text-transform:uppercase;margin-bottom:26px}
   .hero h1{font-weight:900;font-size:clamp(2.4rem,6.5vw,4.2rem);line-height:1.05;max-width:820px}
   .hero h1 span{color:var(--orange)}
-  .hero p.sub{margin:26px 0 36px;font-size:1.15rem;max-width:620px;color:var(--grey)}
+  .hero p.sub{margin:26px 0 36px;font-size:1.15rem;max-width:640px;color:var(--grey)}
   .hero p.sub strong{color:var(--white)}
   .cta{display:inline-block;background:var(--orange);color:var(--bg);font-weight:900;padding:16px 36px;border-radius:8px;text-decoration:none;font-size:1.05rem;border:none;cursor:pointer;font-family:'Lato',Arial,sans-serif}
   .cta:hover{background:var(--orange-soft)}
+  .cta.outline{background:transparent;color:var(--white);border:2px solid var(--grey-dark)}
+  .cta.outline:hover{border-color:var(--orange);color:var(--orange)}
   .hero .free{margin-top:16px;font-size:.95rem;color:var(--grey)}
   .hero .free b{color:var(--green)}
   /* trust bar */
@@ -51,7 +56,8 @@
   .lede{color:var(--grey);max-width:640px;margin-bottom:40px;font-size:1.05rem}
   /* steps */
   .steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px}
-  .step{background:var(--surface);border:1px solid var(--grey-dark);border-radius:14px;padding:26px 22px}
+  .step{background:var(--surface);border:1px solid var(--grey-dark);border-radius:14px;padding:26px 22px;transition:border-color .3s,transform .3s}
+  .step:hover{border-color:var(--orange);transform:translateY(-4px)}
   .step .dd{font-weight:900;font-size:.75rem;letter-spacing:.2em;color:var(--orange);margin-bottom:14px}
   .step h3{font-weight:900;font-size:1.1rem;margin-bottom:8px}
   .step p{font-size:.92rem;color:var(--grey)}
@@ -67,6 +73,13 @@
   .straight .why{margin-top:28px;font-size:.95rem;color:var(--grey);border-top:1px solid var(--grey-dark);padding-top:22px;max-width:720px}
   .straight .why strong{color:var(--white)}
   .straight .why em{color:var(--orange);font-style:normal;font-weight:700}
+  /* pilot callout */
+  .pilot{background:var(--surface2);border:1px solid var(--orange);border-radius:18px;padding:44px 38px}
+  .pilot .big{font-weight:900;font-size:clamp(1.6rem,4vw,2.3rem);margin-bottom:18px}
+  .pilot .big em{color:var(--orange);font-style:normal}
+  .pilot .terms{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:26px}
+  .pilot .terms div{background:var(--bg);border:1px solid var(--grey-dark);border-radius:10px;padding:16px 18px}
+  .pilot .terms .lbl{font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:6px}
   /* founder */
   .founder{display:flex;gap:24px;align-items:flex-start;background:var(--surface);border:1px solid var(--grey-dark);border-radius:14px;padding:30px}
   .founder .avatar{width:84px;height:84px;border-radius:50%;background:var(--orange);overflow:hidden;flex-shrink:0;border:2px solid var(--orange);box-shadow:0 4px 16px rgba(255,107,0,.25)}
@@ -77,14 +90,20 @@
   /* form */
   .formcard{background:var(--surface);border:1px solid var(--grey-dark);border-radius:18px;padding:38px;max-width:560px}
   .formcard label{display:block;font-weight:700;font-size:.88rem;margin:18px 0 6px;color:var(--white)}
-  .formcard input,.formcard select{width:100%;padding:13px 15px;border:1.5px solid var(--grey-dark);border-radius:8px;font-size:1rem;background:var(--bg);color:var(--white);font-family:'Lato',Arial,sans-serif}
-  .formcard input::placeholder{color:#5c5c5c}
-  .formcard input:focus,.formcard select:focus{outline:none;border-color:var(--orange)}
+  .formcard input,.formcard select,.formcard textarea{width:100%;padding:13px 15px;border:1.5px solid var(--grey-dark);border-radius:8px;font-size:1rem;background:var(--bg);color:var(--white);font-family:'Lato',Arial,sans-serif}
+  .formcard textarea{resize:vertical;min-height:90px}
+  .formcard input::placeholder,.formcard textarea::placeholder{color:#5c5c5c}
+  .formcard input:focus,.formcard select:focus,.formcard textarea:focus{outline:none;border-color:var(--orange)}
   .formcard .consent{display:flex;gap:10px;align-items:flex-start;margin-top:20px;font-size:.8rem;color:var(--grey)}
   .formcard .consent input{width:auto;margin-top:3px;accent-color:var(--orange)}
   .formcard button{margin-top:24px;width:100%}
   .formnote{font-size:.82rem;color:var(--grey);margin-top:16px}
   .success{display:none;background:rgba(3,166,102,.12);border:1.5px solid var(--green);border-radius:12px;padding:20px;margin-top:18px;font-weight:700;color:var(--white)}
+  /* divider between audiences */
+  .divider{text-align:center;padding:30px 0;border-top:1px solid var(--grey-dark);border-bottom:1px solid var(--grey-dark);background:var(--surface)}
+  .divider p{font-size:.98rem;color:var(--grey)}
+  .divider a{color:var(--orange);font-weight:700;text-decoration:none}
+  .divider a:hover{text-decoration:underline}
   /* footer */
   footer{border-top:1px solid var(--grey-dark);padding:36px 0;font-size:.85rem;color:var(--grey)}
   footer a{color:var(--orange);text-decoration:none}
@@ -110,13 +129,10 @@
   /* stat strip */
   .statstrip{display:flex;gap:44px;flex-wrap:wrap;margin-top:52px;padding-top:34px;border-top:1px solid var(--grey-dark)}
   .stat .num{font-weight:900;font-size:clamp(1.8rem,4.5vw,2.8rem);color:var(--orange);line-height:1;font-variant-numeric:tabular-nums}
-  .stat .lbl{font-size:.82rem;color:var(--grey);margin-top:6px;max-width:180px}
+  .stat .lbl{font-size:.82rem;color:var(--grey);margin-top:6px;max-width:200px}
   /* scroll reveal */
   .sr{opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
   .sr.in{opacity:1;transform:translateY(0)}
-  .step.sr:nth-child(2){transition-delay:.1s}.step.sr:nth-child(3){transition-delay:.2s}.step.sr:nth-child(4){transition-delay:.3s}
-  .step{transition:border-color .3s,transform .3s}
-  .step:hover{border-color:var(--orange);transform:translateY(-4px)}
   /* hero image treatment */
   .hero-img{position:absolute;inset:0;z-index:0}
   .hero-img img{width:100%;height:100%;object-fit:cover;object-position:center left;transform:scaleX(-1);opacity:.6}
@@ -146,7 +162,7 @@
     .founder{flex-direction:column}
     .hero{padding:60px 0 50px}
     section{padding:52px 0}
-    .straight{padding:32px 24px}
+    .straight,.pilot{padding:32px 24px}
     .statstrip{gap:26px}
   }
 </style>
@@ -169,7 +185,11 @@
 </svg>
       <div class="wordmark"><div class="m">M Z A N S I</div><div class="k">KONECTED</div></div>
     </div>
-    <div class="tagline">Get Smart · Get Funded</div>
+    <div class="navlinks">
+      <a href="#pilot">For Corporates</a>
+      <a href="#entrepreneurs">For Entrepreneurs</a>
+      <a href="#talk">Contact</a>
+    </div>
   </div>
 </header>
 
@@ -183,21 +203,149 @@
   <div class="glow g1"></div>
   <div class="glow g2"></div>
   <div class="wrap">
-    <div class="kicker rise d1">For South African Entrepreneurs</div>
+    <div class="kicker rise d1">For Corporate ESD &amp; Transformation Teams</div>
     <h1>
-      <span class="line rise d2">Free business support.</span>
-      <span class="line rise d3">Real rewards.</span>
-      <span class="line rise d4"><em style="color:var(--orange)">No catch.</em></span>
+      <span class="line rise d2">The money exists.</span>
+      <span class="line rise d3"><em style="color:var(--orange)">The workflow doesn't.</em></span>
     </h1>
-    <p class="sub rise d5">By law, big companies must spend <strong>billions every year</strong> developing small businesses like yours. Mzansi Konected delivers that support directly to you — step by step, on WhatsApp.</p>
+    <p class="sub rise d5">By law, your company already spends millions developing small businesses through Enterprise &amp; Supplier Development. MzansiKonect-ED runs the due diligence, coaching and audit trail on WhatsApp — so that spend comes back as <strong>evidence</strong>, not just an expense.</p>
     <div class="rise d6">
-      <a class="cta" href="#signup">Join the waiting list</a>
-      <p class="free"><b>100% free for entrepreneurs.</b> No fees. Ever. The corporates pay — that's the law.</p>
+      <a class="cta" href="#talk">Talk to us about a founding pilot</a>
+      <a class="cta outline" href="#entrepreneurs" style="margin-left:12px">I'm a small business owner →</a>
+      <p class="free">Founding-cohort pricing for the first three corporate partners. No cost to your entrepreneurs — ever.</p>
     </div>
     <div class="statstrip rise d6">
-      <div class="stat"><div class="num" data-count="30" data-suffix=" billion" data-prefix="R">R0</div><div class="lbl">must be spent on small business development every year — by law</div></div>
-      <div class="stat"><div class="num" data-count="2.69" data-decimals="2" data-suffix=" million">0</div><div class="lbl">small businesses in South Africa, most locked out of support</div></div>
-      <div class="stat"><div class="num" data-count="93.9" data-decimals="1" data-suffix="%">0</div><div class="lbl">of online South Africans already use WhatsApp — so that's where we are</div></div>
+      <div class="stat"><div class="num" data-count="30" data-suffix=" billion" data-prefix="R">R0</div><div class="lbl">mandated ESD spend across SA corporates, every year</div></div>
+      <div class="stat"><div class="num" data-count="96" data-suffix="% less">0</div><div class="lbl">cost to deliver ESD per entrepreneur — R380K today, R14K with this platform</div></div>
+      <div class="stat"><div class="num" data-count="93.9" data-decimals="1" data-suffix="%">0</div><div class="lbl">of online South Africans already use WhatsApp — zero new infrastructure</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="trustbar">
+  <div class="wrap">
+    <span>B-BBEE audit trail, automatic</span>
+    <span>Section 18(2)-ready reporting</span>
+    <span>WhatsApp-native — nothing new for your entrepreneurs to install</span>
+    <span>POPIA compliant</span>
+  </div>
+</div>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Get Smart</span><span>Get Funded</span><span>Audit-Ready</span><span>On WhatsApp</span><span>Prove It · Fund It</span><span>B-BBEE Compliant</span>
+    <span>Get Smart</span><span>Get Funded</span><span>Audit-Ready</span><span>On WhatsApp</span><span>Prove It · Fund It</span><span>B-BBEE Compliant</span>
+  </div>
+</div>
+
+<section id="how">
+  <div class="wrap">
+    <div class="kicker2">How it works</div>
+    <h2>Four gates. One audit trail.</h2>
+    <p class="lede">Every entrepreneur moves through the same four due-diligence gates before your spend reaches them — each one timestamped, logged, and ready for your B-BBEE report.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="dd">GATE 1 · IDENTITY</div>
+        <h3>Verified from day one</h3>
+        <p>ID, CIPC registration, tax number — checked over WhatsApp before anything else happens.</p>
+        <div class="reward">Logged: <b>identity + compliance record</b></div>
+      </div>
+      <div class="step">
+        <div class="dd">GATE 2 · READINESS</div>
+        <h3>Coaching, on the record</h3>
+        <p>Sector-specific microlearning — food, retail, services, construction and more. Every completion is timestamped evidence, not a workshop you have to take on trust.</p>
+        <div class="reward">Logged: <b>capability + engagement record</b></div>
+      </div>
+      <div class="step">
+        <div class="dd">GATE 3 · FINANCIAL</div>
+        <h3>Milestone-based disbursement</h3>
+        <p>Bank account, SARS compliance, transaction history — verified before funds move. Support unlocks only when readiness is proven.</p>
+        <div class="reward">Logged: <b>disbursement + audit entry</b></div>
+      </div>
+      <div class="step">
+        <div class="dd">GATE 4 · TRADING</div>
+        <h3>Supplier-development handoff</h3>
+        <p>Entrepreneurs trading consistently move into a Supplier Development pipeline — toward your actual supply chain, not just a graduation certificate.</p>
+        <div class="reward">Logged: <b>trading history + SD readiness</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="pilot">
+  <div class="wrap">
+    <div class="pilot">
+      <div class="kicker2">A founding pilot</div>
+      <div class="big">50 entrepreneurs. <em>90 days.</em> One cohort.</div>
+      <p style="color:var(--grey);max-width:640px">A pilot is how this gets proven with your programme specifically — not a demo, a real cohort running the same due-diligence gates and audit trail you'd use at scale, at founding-client pricing.</p>
+      <div class="terms">
+        <div><div class="lbl">Included</div>Full due-diligence journey — Identity through Financial — live ESD manager dashboard, B-BBEE audit-ready reporting</div>
+        <div><div class="lbl">Cohort size</div>50 entrepreneurs, sourced from your existing pipeline or ours</div>
+        <div><div class="lbl">Timeline</div>90 days, start to first cohort outcomes</div>
+        <div><div class="lbl">Pricing</div>Founding rate — first three corporate partners only</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="straight">
+      <div class="kicker2">Where this stands today</div>
+      <h2>MVP built. <span>Ready to test with your cohort.</span></h2>
+      <p style="color:var(--grey);max-width:680px">We're at MVP stage — the due-diligence engine, WhatsApp automation and audit trail are built and tested in simulation, including edge cases like failed document checks and duplicate submissions. Meta's business verification is cleared and the WhatsApp Business line is ready to connect. What's next is proving it end-to-end with a real cohort — that's what the founding pilot is for, and we'd build it together with your team.</p>
+      <ul style="margin-top:24px">
+        <li class="yes">Every rand disbursed is logged to an audit trail you can hand to your B-BBEE verification agency</li>
+        <li class="yes">WhatsApp Business verification is cleared and the line is ready to connect</li>
+        <li class="yes">Built on findings from GIBS' independent 2024 study of the ESD ecosystem (43 practitioner interviews) — research that shaped the design, not a review of this platform itself</li>
+        <li class="yes">The core team is being built out — CTO and Head of ESD roles currently in recruitment</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="talk" style="background:var(--surface);border-top:1px solid var(--grey-dark)">
+  <div class="wrap">
+    <div class="kicker2">Let's talk</div>
+    <h2>Start a pilot conversation</h2>
+    <p class="lede">Tell us a little about your programme and we'll come back with what a founding pilot would look like for you.</p>
+    <div class="formcard" style="background:var(--bg)">
+      <form id="corporate-contact" action="mailto:hello@mzansikonected.co.za" method="post" enctype="text/plain">
+        <label for="c-name">Your name</label>
+        <input id="c-name" name="name" type="text" required placeholder="e.g. Zinzi Mgolodela">
+        <label for="c-company">Company</label>
+        <input id="c-company" name="company" type="text" required placeholder="e.g. Woolworths">
+        <label for="c-email">Work email</label>
+        <input id="c-email" name="email" type="email" required placeholder="you@company.co.za">
+        <label for="c-message">What would you want a pilot to prove?</label>
+        <textarea id="c-message" name="message" placeholder="Optional — helps us prep for the conversation"></textarea>
+        <button class="cta" type="submit">Send it</button>
+      </form>
+      <p class="formnote">This opens your email client addressed to hello@mzansikonected.co.za. If you'd rather not wait on a mail reply, WhatsApp is the fastest way to reach us — ask for the number.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider">
+  <p>Are you a small business owner, not a corporate? <a href="#entrepreneurs">See what's in it for you ↓</a></p>
+</div>
+
+<div id="entrepreneurs" class="hero" style="padding:70px 0 50px">
+  <div class="hero-img" aria-hidden="true">
+    <picture>
+      <source media="(max-width:600px)" srcset="mzansikonected-hero-mobile.webp">
+      <img src="mzansikonected-hero.webp" alt="" onerror="this.closest('.hero-img').style.display='none'">
+    </picture>
+  </div>
+  <div class="glow g1"></div>
+  <div class="glow g2"></div>
+  <div class="wrap">
+    <div class="kicker sr">For South African Entrepreneurs</div>
+    <h2 class="sr" style="font-size:clamp(2rem,5vw,3rem);margin-bottom:18px">Free business support. Real rewards. <span style="color:var(--orange)">No catch.</span></h2>
+    <p class="sub sr" style="margin-bottom:30px">Mzansi Konected delivers that same corporate ESD spend directly to you — step by step, on WhatsApp.</p>
+    <div class="sr">
+      <a class="cta" href="#signup">Join the waiting list</a>
+      <p class="free"><b>100% free for entrepreneurs.</b> No fees. Ever. The corporates pay — that's the law.</p>
     </div>
   </div>
 </div>
@@ -211,16 +359,9 @@
   </div>
 </div>
 
-<div class="ticker" aria-hidden="true">
-  <div class="ticker-track">
-    <span>Get Smart</span><span>Get Funded</span><span>No Fees Ever</span><span>On WhatsApp</span><span>Real Rewards</span><span>Prove It · Earn It</span>
-    <span>Get Smart</span><span>Get Funded</span><span>No Fees Ever</span><span>On WhatsApp</span><span>Real Rewards</span><span>Prove It · Earn It</span>
-  </div>
-</div>
-
-<section id="how">
+<section>
   <div class="wrap">
-    <div class="kicker2">How it works</div>
+    <div class="kicker2">How it works for you</div>
     <h2>Prove it. Earn it. Grow it.</h2>
     <p class="lede">You prove your business is real, one step at a time. Every step you pass unlocks real support — automatically. No committees. No connections needed.</p>
     <div class="steps">
@@ -334,19 +475,6 @@
         </div>
         <button class="cta" type="submit">Put me on the list — it's free</button>
       </form>
-      <script>
-        (function(){
-          var form = document.getElementById('waitlist');
-          var success = document.getElementById('successMsg');
-          form.addEventListener('submit', function(){
-            setTimeout(function(){
-              form.style.display = 'none';
-              success.style.display = 'block';
-              success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 300);
-          });
-        })();
-      </script>
       <div class="success" id="successMsg" style="display:none; text-align:center; padding: 40px 24px; background: rgba(3, 166, 102, 0.08); border: 2px solid var(--green); border-radius: 16px; margin-top: 10px;">
         <div style="width:64px; height:64px; background:var(--green); border-radius:50%; display:inline-flex; align-items:center; justify-content:center; margin-bottom:18px; box-shadow: 0 0 20px rgba(3, 166, 102, 0.4);">
           <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
@@ -371,4 +499,71 @@
     <div class="fm">MZANSI <span>KONECTED</span> <span class="dongle" style="font-size:1.4rem;font-weight:400;margin-left:10px;letter-spacing:0;color:var(--orange-soft)">Get Smart · Get Funded</span></div>
     <div>Contact: <a href="mailto:hello@mzansikonected.co.za">hello@mzansikonected.co.za</a></div>
     <div>Your personal information is processed in line with the Protection of Personal Information Act (POPIA). We never sell your data.</div>
-    <div>If anyone asks you
+    <div>If anyone asks you for money in our name, it's not us — please report it to us immediately.</div>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    // waitlist success swap
+    var form = document.getElementById('waitlist');
+    var success = document.getElementById('successMsg');
+    if(form){
+      form.addEventListener('submit', function(){
+        setTimeout(function(){
+          form.style.display = 'none';
+          success.style.display = 'block';
+          success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }, 300);
+      });
+    }
+
+    // animated stat counters
+    function animateCount(el){
+      var target = parseFloat(el.dataset.count);
+      var decimals = parseInt(el.dataset.decimals || '0', 10);
+      var prefix = el.dataset.prefix || '';
+      var suffix = el.dataset.suffix || '';
+      var duration = 1400;
+      var start = null;
+      function step(ts){
+        if(!start) start = ts;
+        var progress = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        var val = target * eased;
+        el.textContent = prefix + val.toFixed(decimals) + suffix;
+        if(progress < 1) requestAnimationFrame(step);
+        else el.textContent = prefix + target.toFixed(decimals) + suffix;
+      }
+      requestAnimationFrame(step);
+    }
+    var counters = document.querySelectorAll('[data-count]');
+    if('IntersectionObserver' in window){
+      var io = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            animateCount(entry.target);
+            io.unobserve(entry.target);
+          }
+        });
+      }, {threshold:0.4});
+      counters.forEach(function(el){ io.observe(el); });
+    } else {
+      counters.forEach(animateCount);
+    }
+
+    // scroll reveal
+    var reveals = document.querySelectorAll('.sr');
+    if(reveals.length && 'IntersectionObserver' in window){
+      var ro = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){ entry.target.classList.add('in'); ro.unobserve(entry.target); }
+        });
+      }, {threshold:0.15});
+      reveals.forEach(function(el){ ro.observe(el); });
+    }
+  })();
+</script>
+
+</body>
+</html>
